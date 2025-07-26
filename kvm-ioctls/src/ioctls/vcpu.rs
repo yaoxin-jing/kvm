@@ -1558,7 +1558,7 @@ impl VcpuFd {
     /// }
     /// # }
     /// ```
-    pub fn run(&mut self) -> Result<VcpuExit> {
+    pub fn run(&self) -> Result<VcpuExit> {
         // SAFETY: Safe because we know that our file is a vCPU fd and we verify the return result.
         let ret = unsafe { ioctl(self, KVM_RUN()) };
         if ret == 0 {
@@ -1718,12 +1718,12 @@ impl VcpuFd {
     }
 
     /// Returns a mutable reference to the kvm_run structure
-    pub fn get_kvm_run(&mut self) -> &mut kvm_run {
+    pub fn get_kvm_run(&self) -> &mut kvm_run {
         self.kvm_run_ptr.as_mut_ref()
     }
 
     /// Sets the `immediate_exit` flag on the `kvm_run` struct associated with this vCPU to `val`.
-    pub fn set_kvm_immediate_exit(&mut self, val: u8) {
+    pub fn set_kvm_immediate_exit(&self, val: u8) {
         let kvm_run = self.kvm_run_ptr.as_mut_ref();
         kvm_run.immediate_exit = val;
     }
