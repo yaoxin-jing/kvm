@@ -732,6 +732,7 @@ pub const KVM_STATS_BASE_MAX: u32 = 256;
 pub const KVM_X86_NOTIFY_VMEXIT_ENABLED: u32 = 1;
 pub const KVM_X86_NOTIFY_VMEXIT_USER: u32 = 2;
 pub const KVM_MEMORY_ATTRIBUTE_PRIVATE: u32 = 8;
+pub const KVM_HC_MAP_GPA_RANGE: u64 = 12;
 pub type __s8 = ::std::os::raw::c_schar;
 pub type __u8 = ::std::os::raw::c_uchar;
 pub type __s16 = ::std::os::raw::c_short;
